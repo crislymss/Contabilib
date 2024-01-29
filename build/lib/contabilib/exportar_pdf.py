@@ -204,3 +204,22 @@ def gerar_pdf_balanco(ativos, passivos, periodo):
 
     create_pdf("balanco_patrimonial.pdf", data)
 
+<<<<<<< HEAD
+=======
+'''ativos = {
+    'janeiro': {'ativo_circulante': 10000, 'ativo_nao_circulante': 20000},
+    'fevereiro': {'ativo_circulante': 15000, 'ativo_nao_circulante': 25000},
+    # ...
+}
+
+passivos = {
+    'janeiro': {'passivo_circulante': 5000, 'passivo_nao_circulante': 15000},
+    'fevereiro': {'passivo_circulante': 6000, 'passivo_nao_circulante': 16000},
+    # ...
+}
+
+periodo = ['janeiro', 'fevereiro', # ... 
+]
+
+gerar_pdf_balanco(ativos, passivos, periodo)'''
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10

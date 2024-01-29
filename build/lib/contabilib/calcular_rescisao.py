@@ -5,6 +5,7 @@ ferias_proporcionais = 0
 
 
 def rescisao_sem_justa_causa(salario, tempo_de_servico):
+<<<<<<< HEAD
     
     '''Este metodo calcula a rescisao de um funcionario sem justa causa.
     
@@ -33,6 +34,8 @@ def rescisao_sem_justa_causa(salario, tempo_de_servico):
             Valor das ferias proporcionais do funcionario.
             
 '''
+=======
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
  
    
     #calculo do FGTS
@@ -59,6 +62,7 @@ def rescisao_sem_justa_causa(salario, tempo_de_servico):
 
 
 def rescisao_justa_causa(salario, tempo_de_servico):
+<<<<<<< HEAD
     
     '''Este metodo calcula a rescisao de um funcionario com justa causa.
     
@@ -81,6 +85,10 @@ def rescisao_justa_causa(salario, tempo_de_servico):
     '''
   
     #no caso de justa causa, o funcionário não tem direito a multa do FGTS, aviso prévio e décimo terceiro
+=======
+  
+     #no caso de justa causa, o funcionário não tem direito a multa do FGTS, aviso prévio e décimo terceiro
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
    
 
     #calculo do FGTS
@@ -92,6 +100,7 @@ def rescisao_justa_causa(salario, tempo_de_servico):
 
 
 def rescisao_aposentadoria(salario, tempo_de_servico):
+<<<<<<< HEAD
     '''Este metodo calcula a rescisao de um funcionario por aposentadoria.
     
     ...
@@ -119,6 +128,8 @@ def rescisao_aposentadoria(salario, tempo_de_servico):
             Valor das ferias proporcionais do funcionario.
             
     '''
+=======
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
     # Inicializando as variáveis
 
     #calculo do FGTS
@@ -140,6 +151,7 @@ def rescisao_aposentadoria(salario, tempo_de_servico):
 
 
 def rescisao_falecimento(salario, tempo_de_servico):
+<<<<<<< HEAD
     '''Este metodo calcula a rescisao de um funcionario por falecimento.
     
     ...
@@ -167,6 +179,10 @@ def rescisao_falecimento(salario, tempo_de_servico):
             Valor das ferias proporcionais do funcionario.'''
 
 
+=======
+
+    #calculo do FGTS
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
     fgts = salario * 0.08 * tempo_de_servico
     
     #no caso de falecimento, os dependentes têm direito ao FGTS, sem multa
@@ -184,6 +200,7 @@ def rescisao_falecimento(salario, tempo_de_servico):
 
 
 def rescisao_demissao(salario, tempo_de_servico):
+<<<<<<< HEAD
     '''Este metodo calcula a rescisao de um funcionario por demissao.
     
     ...
@@ -205,6 +222,8 @@ def rescisao_demissao(salario, tempo_de_servico):
             Valor do decimo terceiro do funcionario.
         ferias_proporcionais: float
             Valor das ferias proporcionais do funcionario.'''
+=======
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
     
     #calculo do FGTS
     fgts = salario * 0.08 * tempo_de_servico
@@ -222,6 +241,7 @@ def rescisao_demissao(salario, tempo_de_servico):
 
 
 def rescisao_termino_de_contrato_por_experiencia(salario, tempo_de_servico):
+<<<<<<< HEAD
     '''Este metodo calcula a rescisao de um funcionario por termino de contrato de experiencia.
     
     ...
@@ -245,6 +265,8 @@ def rescisao_termino_de_contrato_por_experiencia(salario, tempo_de_servico):
             Valor das ferias proporcionais do funcionario.
             
     '''
+=======
+>>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
     #calculo do FGTS
     fgts = salario * 0.08 * tempo_de_servico
 
