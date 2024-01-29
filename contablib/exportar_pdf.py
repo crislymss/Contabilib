@@ -1,115 +1,144 @@
-'''from fpdf import FPDF
 
-def gerar_pdf_rescisao(dados):
-    pdf = FPDF()
 
-    # Adicionando uma página
+from fpdf import FPDF
+
+class PDF_Rescisao(FPDF):
+    def header(self):
+        self.set_font('Times', 'B', 12)
+        self.cell(0, 10, 'TERMO DE RESCISÃO DO CONTRATO DE TRABALHO', 0, 1, 'C')
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Times', 'I', 8)
+        self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
+
+def create_pdf(file_name, data):
+    pdf = PDF_Rescisao()
     pdf.add_page()
 
-    # Definindo a fonte
-    pdf.set_font("Arial", size = 12)
+    pdf.set_fill_color(200, 200, 200)  # Cinza claro
+    th = 10
+    pdf.set_font('Times', '', 14)
 
-    # Adicionando um título
-    pdf.cell(0, 10, txt = "CÁLCULO DA RESCISÃO", ln = True, align = 'C')
+    for i, row in enumerate(data):
+        if i % 2 == 0:
+            pdf.set_fill_color(200, 200, 200)  # Cinza claro para linhas pares
+        else:
+            pdf.set_fill_color(255, 255, 255)  # Branco para linhas ímpares
+        pdf.cell(90, th, str(row[0]), border=1, ln=0, fill=True)
+        pdf.cell(0, th, str(row[1]), border=1, ln=1, fill=True)
 
-    # Adicionando os dados
-    for chave, valor in dados.items():
-        pdf.cell(0, 10, txt = f"{chave}: {valor}", ln = True)
+    pdf.ln(10)
 
-    # Salvando o PDF
-    pdf.output("rescisao.pdf")
+    pdf.cell(0, th, 'Assinatura do Funcionário: ________________________', 0, 1)
+    pdf.cell(0, th, 'Assinatura do Empregador: ________________________', 0, 1)
+
+    pdf.output(file_name)
 
 
 
-dados = {
-    'DATA ADMISSÃO': '01/01/2021',
-    'DATA SAÍDA': '18/03/2022',
-    'AVISO PRÉVIO': 'R$ 500,00',
-    'SALÁRIO': 'R$ 2.000,00',
-    'SALDO DE SALÁRIO': 'R$ 1.133,33',
-    'FÉRIAS VENCIDAS': 'R$ 2.000,00',
-    'FÉRIAS PROPORCIONAL (12 AVOS)': 'R$ 500,00',
-    'FÉRIAS 1/3': 'R$ 833,33',
-    '13º PROPORCIONAL': 'R$ 500,00',
-    'TOTAL BRUTO': 'R$ 4.966,67'
+
+def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, causadoafastamento, multafgts, avisoprevio, decimoterceiro, 
+                       ferias_proporcionais, diadarescisao, valor_rescisao):
+ 
+
+    data = [
+    ['Nome do Funcionário', nome],
+    ['CPF', cpf],
+    ['Razão Social da Empresa', razaosocial],
+    ['CNPJ', cnpj],
+    ['Tempo de Serviço', tempodeservico],
+    ['Dia da Rescisão', diadarescisao],
+    ['Causa do Afastamento', causadoafastamento],
+    ['Salário', 'R$ ' + salario],
+    ['Multa FGTS', 'R$ ' + multafgts],
+    ['Aviso Prévio', 'R$ ' + avisoprevio],
+    ['Décimo Terceiro', 'R$ ' + decimoterceiro],
+    ['Férias Proporcionais', 'R$ ' + ferias_proporcionais],
+    ['Valor da Rescisão', 'R$ ' + valor_rescisao],
+    # adicione mais campos conforme necessário
+    ]
+
+    create_pdf("termo_de_rescisao.pdf", data)
+
+
+
+
+ 
+nome = 'João'
+cpf =  '123.456.789-00'
+razao = 'Empresa XYZ'
+
+
+gerar_pdf_rescisao(nome, cpf, razao, 'teste', 'sss', 'ddd', 'sss', 'dkdmd', 'jind', 'ewfnjefw', 
+                       'dndnd', 'dkdkd', 'fdmdmd')
+
+
+
+
+class PDF_Balanco(FPDF):
+    def header(self):
+        self.set_font('Times', 'B', 12)
+        self.cell(0, 10, 'BALANÇO PATRIMONIAL', 0, 1, 'C')
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Times', 'I', 8)
+        self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
+
+def create_pdf(file_name, data):
+    pdf = PDF_Balanco()
+    pdf.add_page()
+
+    pdf.set_fill_color(200, 200, 200)  # Cinza claro
+    th = 10
+    pdf.set_font('Times', '', 14)
+
+    for i, row in enumerate(data):
+        if i % 2 == 0:
+            pdf.set_fill_color(200, 200, 200)  # Cinza claro para linhas pares
+        else:
+            pdf.set_fill_color(255, 255, 255)  # Branco para linhas ímpares
+        pdf.cell(90, th, str(row[0]), border=1, ln=0, fill=True)
+        pdf.cell(0, th, str(row[1]), border=1, ln=1, fill=True)
+
+    pdf.output(file_name)
+
+def gerar_pdf_balanco(ativos, passivos, periodo):
+    data = []
+    patrimonio_liquido_total = 0
+    for mes in periodo:
+        ativo_circulante = ativos[mes]['ativo_circulante']
+        ativo_nao_circulante = ativos[mes]['ativo_nao_circulante']
+        passivo_circulante = passivos[mes]['passivo_circulante']
+        passivo_nao_circulante = passivos[mes]['passivo_nao_circulante']
+        patrimonio_liquido = ativo_circulante + ativo_nao_circulante - passivo_circulante - passivo_nao_circulante
+        patrimonio_liquido_total += patrimonio_liquido
+
+        data.append([f"Ativo Circulante ({mes})", f"R$ {ativo_circulante}"])
+        data.append([f"Ativo Não Circulante ({mes})", f"R$ {ativo_nao_circulante}"])
+        data.append([f"Passivo Circulante ({mes})", f"R$ {passivo_circulante}"])
+        data.append([f"Passivo Não Circulante ({mes})", f"R$ {passivo_nao_circulante}"])
+        data.append([f"Patrimônio Líquido ({mes})", f"R$ {patrimonio_liquido}"])
+        data.append(["", ""])  # linha em branco entre os meses
+
+    data.append(["Patrimônio Líquido Total", f"R$ {patrimonio_liquido_total}"])
+
+    create_pdf("balanco_patrimonial.pdf", data)
+
+ativos = {
+    'janeiro': {'ativo_circulante': 10000, 'ativo_nao_circulante': 20000},
+    'fevereiro': {'ativo_circulante': 15000, 'ativo_nao_circulante': 25000},
+    # ...
 }
 
-
-
-gerar_pdf_rescisao(dados)'''
-'''import PyPDF2
-
-def preencher_pdf(template_path, output_path, **dados):
-    with open(template_path, 'rb') as template_file:
-        pdf_reader = PyPDF2.PdfReader(template_file)
-        pdf_writer = PyPDF2.PdfWriter()
-
-        # Itera sobre todas as páginas do PDF
-        for page_num in range(len(pdf_reader.pages)):
-            page = pdf_reader.pages[page_num]
-
-            # Preenche os campos do formulário com os dados fornecidos
-            if '/Annots' in page:
-                for annot_indirect in page['/Annots']:
-                    annot = annot_indirect.get_object()  # Linha corrigida
-                    if '/T' in annot and annot['/T'] in dados:
-                        annot.update({
-                            PyPDF2.generic.NameObject("/V"): PyPDF2.generic.createStringObject(dados[annot['/T']])
-                        })
-
-            # Adiciona a página ao novo PDF
-            pdf_writer.add_page(page)
-
-        # Salva o novo PDF
-        with open(output_path, 'wb') as output_file:
-            pdf_writer.write(output_file)
-
-# Exemplo de uso:
-dados_para_preencher = {
-    "Empregador:": "123456789",
-
-    # Adicione os outros dados aqui...
+passivos = {
+    'janeiro': {'passivo_circulante': 5000, 'passivo_nao_circulante': 15000},
+    'fevereiro': {'passivo_circulante': 6000, 'passivo_nao_circulante': 16000},
+    # ...
 }
-template_path = "C:\\Users\\erikl\\OneDrive\\Área de Trabalho\\UNIVERSIDADE ERIK\\4º PERIODO\\POO II\\PROJETO FINAL\\biblioteca-contablib\\contablib\\modelo_recisao3.pdf"
-output_path = "C:\\Users\\erikl\\OneDrive\\Área de Trabalho\\UNIVERSIDADE ERIK\\4º PERIODO\\POO II\\PROJETO FINAL\\biblioteca-contablib\\contablib\\recisao_preenchida.pdf"
 
-preencher_pdf(template_path, output_path, **dados_para_preencher)'''
+periodo = ['janeiro', 'fevereiro', # ... 
+]
 
-
-
-import requests
-from reportlab.pdfgen import canvas
-
-def buscar_cnpj(cnpj):
-    # Faz a requisição para a API que retorna as informações do CNPJ
-    response = requests.get(f'https://www.receitaws.com.br/v1/cnpj/{cnpj}')
-
-    # Verifica se a requisição foi bem sucedida
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return None
-
-def salvar_comprovante(cnpj):
-    # Busca as informações do CNPJ
-    info = buscar_cnpj(cnpj)
-
-    if info is not None:
-        # Cria um novo arquivo PDF
-        c = canvas.Canvas(f'{cnpj}.pdf')
-
-        # Adiciona as informações do CNPJ ao PDF
-        c.drawString(100, 750, f'CNPJ: {info["cnpj"]}')
-        c.drawString(100, 730, f'Nome: {info["nome"]}')
-        c.drawString(100, 710, f'Situação: {info["situacao"]}')
-        # Adicione aqui as outras informações que você deseja incluir no PDF...
-
-        # Salva o PDF
-        c.save()
-    else:
-        print(f'Não foi possível buscar as informações do CNPJ {cnpj}.')
-
-# Exemplo de uso:
-salvar_comprovante('47960950000121')
-
-
+gerar_pdf_balanco(ativos, passivos, periodo)
