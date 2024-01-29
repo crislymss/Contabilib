@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.0.2"
-DESCRIPTION = "Pacote de teste"
+VERSION = "0.0.3"
+DESCRIPTION = "Biblioteca para calculos contabeis."
 LONG_DESCRIPTION = "Biblioteca Python para manipulações de serviços de contabilidade."
 
 
@@ -13,15 +13,15 @@ REQUIRED_PACKAGES = [
 
 setup(
     # the name must match the folder name
-    name="Contablibi",
+    name="contabilib",
     version=VERSION,
-    author="crisly, erik",
-    author_email="eriklustosa8@gmail.com",
+    author="crisly",
+    author_email="crislymaria21@gmail.com",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
     install_requires=REQUIRED_PACKAGES,  # adiciona bibliotecas adicionais
-    keywords=['python', 'contablib'],
+    keywords=['python'],
     classifiers=["Development Status :: 3 - Alpha",]
 
 )

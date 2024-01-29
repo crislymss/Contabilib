@@ -2,13 +2,25 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-multafgts = 100
-avisoprevio = 200
-decimoterceiro = 10
-ferias_proporcionais = 300
-valor_rescisao = 20
-
 def gerargraficorescisao(multafgts, avisoprevio, decimoterceiro, ferias_proporcionais, valor_rescisao):
+    '''Este metodo gera um grafico de barras com os valores da rescisao.
+    
+    ...
+    
+    Atributtes:
+    
+    multafgts: float
+        Valor da multa do FGTS do funcionario.
+    avisoprevio: float
+        Valor do aviso previo do funcionario.
+    decimoterceiro: float
+        Valor do decimo terceiro do funcionario.
+    ferias_proporcionais: float
+        Valor das ferias proporcionais do funcionario.
+    valor_rescisao: float
+        Valor da rescisao do funcionario.
+    
+    '''
     # Cria uma lista com os nomes dos componentes da rescisão
     componentes = ['Multa FGTS', 'Aviso Prévio', 'Décimo Terceiro', 'Férias Proporcionais', 'Valor Rescisão']
     
@@ -41,5 +53,3 @@ def gerargraficorescisao(multafgts, avisoprevio, decimoterceiro, ferias_proporci
     # Fecha a figura
     plt.close(fig)
 
-# Exemplo de uso
-gerargraficorescisao(multafgts, avisoprevio, decimoterceiro, ferias_proporcionais, valor_rescisao)

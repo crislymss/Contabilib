@@ -3,6 +3,9 @@
 from fpdf import FPDF
 
 class PDF_Rescisao(FPDF):
+    '''Classe para gerar PDFs de rescisão de contrato de trabalho.
+    
+    '''
     def header(self):
         self.set_font('Times', 'B', 12)
         self.cell(0, 10, 'TERMO DE RESCISÃO DO CONTRATO DE TRABALHO', 0, 1, 'C')
@@ -13,6 +16,22 @@ class PDF_Rescisao(FPDF):
         self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
 
 def create_pdf(file_name, data):
+    '''Este metodo cria um PDF com os dados da rescisão.
+    
+    ...
+    
+    Atributtes:
+    
+    file_name: str
+        Nome do arquivo PDF.
+    data: list
+        Lista contendo os dados da rescisão.
+        
+    Returns:
+    
+        None
+        
+    '''
     pdf = PDF_Rescisao()
     pdf.add_page()
 
@@ -40,6 +59,43 @@ def create_pdf(file_name, data):
 
 def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, causadoafastamento, multafgts, avisoprevio, decimoterceiro, 
                        ferias_proporcionais, diadarescisao, valor_rescisao):
+    
+    '''Este metodo gera um PDF com os dados da rescisão.
+    
+    ...
+    
+    Atributtes:
+    
+    nome: str
+        Nome do funcionario.
+    cpf: str
+        CPF do funcionario.
+    razaosocial: str
+        Razao social da empresa.
+    cnpj: str
+        CNPJ da empresa.
+    tempodeservico: int
+        Tempo de servico do funcionario.
+    salario: float
+        Salario do funcionario.
+    causadoafastamento: str
+        Causa do afastamento do funcionario.
+    multafgts: float
+        Valor da multa do FGTS do funcionario.
+    avisoprevio: float
+        Valor do aviso previo do funcionario.
+    decimoterceiro: float
+        Valor do decimo terceiro do funcionario.
+    ferias_proporcionais: float
+        Valor das ferias proporcionais do funcionario.
+    diadarescisao: str
+        Dia da rescisao do funcionario.
+    valor_rescisao: float
+        Valor da rescisao do funcionario.
+    
+    
+    Returns:
+        None'''
  
 
     data = [
@@ -64,14 +120,9 @@ def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, ca
 
 
 
- 
-nome = 'João'
-cpf =  '123.456.789-00'
-razao = 'Empresa XYZ'
 
 
-gerar_pdf_rescisao(nome, cpf, razao, 'teste', 'sss', 'ddd', 'sss', 'dkdmd', 'jind', 'ewfnjefw', 
-                       'dndnd', 'dkdkd', 'fdmdmd')
+
 
 
 
@@ -87,6 +138,18 @@ class PDF_Balanco(FPDF):
         self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
 
 def create_pdf(file_name, data):
+    '''Cria um PDF com os dados do balanço patrimonial.
+    
+    ...
+    
+    Atributtes:
+        file_name: str
+            Nome do arquivo PDF.
+        data: list
+            Lista contendo os dados do balanço patrimonial.
+            
+    Returns:
+        None'''
     pdf = PDF_Balanco()
     pdf.add_page()
 
@@ -105,6 +168,21 @@ def create_pdf(file_name, data):
     pdf.output(file_name)
 
 def gerar_pdf_balanco(ativos, passivos, periodo):
+    '''Este metodo gera um PDF com os dados do balanço patrimonial.
+    
+    ...
+    
+    Atributtes:
+        ativos: dict
+            Dicionario contendo os ativos da empresa.
+        passivos: dict
+            Dicionario contendo os passivos da empresa.
+        periodo: list
+            Lista contendo os meses do periodo.
+            
+    Returns:
+        None
+    '''
     data = []
     patrimonio_liquido_total = 0
     for mes in periodo:
@@ -126,19 +204,3 @@ def gerar_pdf_balanco(ativos, passivos, periodo):
 
     create_pdf("balanco_patrimonial.pdf", data)
 
-ativos = {
-    'janeiro': {'ativo_circulante': 10000, 'ativo_nao_circulante': 20000},
-    'fevereiro': {'ativo_circulante': 15000, 'ativo_nao_circulante': 25000},
-    # ...
-}
-
-passivos = {
-    'janeiro': {'passivo_circulante': 5000, 'passivo_nao_circulante': 15000},
-    'fevereiro': {'passivo_circulante': 6000, 'passivo_nao_circulante': 16000},
-    # ...
-}
-
-periodo = ['janeiro', 'fevereiro', # ... 
-]
-
-gerar_pdf_balanco(ativos, passivos, periodo)
