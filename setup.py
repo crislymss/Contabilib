@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.0.3"
+VERSION = "0.0.5"
 DESCRIPTION = "Biblioteca para calculos contabeis."
 LONG_DESCRIPTION = "Biblioteca Python para manipulações de serviços de contabilidade."
 

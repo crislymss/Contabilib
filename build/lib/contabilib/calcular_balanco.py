@@ -1,5 +1,4 @@
 def calcularbalanco(ativos, passivos, periodo):
-<<<<<<< HEAD
     
     '''Este metodo calcula o balanco patrimonial de uma empresa.
     
@@ -22,10 +21,6 @@ def calcularbalanco(ativos, passivos, periodo):
     '''
     
     patrimonio_liquido = {}# Inicializando o patrimônio líquido
-=======
-    # Inicializando o patrimônio líquido
-    patrimonio_liquido = {}
->>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10
 
     # Para cada mês no período
     for mes in periodo:
@@ -37,26 +32,3 @@ def calcularbalanco(ativos, passivos, periodo):
         patrimonio_liquido[mes] = total_ativos - total_passivos
 
     return patrimonio_liquido
-<<<<<<< HEAD
-=======
-
-
-'''ativos = {
-    'janeiro': {'ativo_circulante': 10000, 'ativo_nao_circulante': 20000},
-    'fevereiro': {'ativo_circulante': 15000, 'ativo_nao_circulante': 25000},
-    # ...
-}
-
-passivos = {
-    'janeiro': {'passivo_circulante': 5000, 'passivo_nao_circulante': 15000},
-    'fevereiro': {'passivo_circulante': 6000, 'passivo_nao_circulante': 16000},
-    # ...
-}
-
-periodo = ['janeiro', 'fevereiro', # ... 
-]
-
-patrimonio = calcular_balanco(ativos, passivos, periodo)
-
-print(patrimonio)'''
->>>>>>> c4d6aaca632d323ab757b5fd7d07d104b02c3d10

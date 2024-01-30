@@ -97,7 +97,12 @@ def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, ca
     Returns:
         None'''
  
-
+    multafgts =  str(multafgts)
+    valor_rescisao = str(valor_rescisao)
+    avisoprevio = str(avisoprevio)
+    decimoterceiro = str(decimoterceiro)
+    ferias_proporcionais = str(ferias_proporcionais)
+    
     data = [
     ['Nome do Funcionário', nome],
     ['CPF', cpf],
