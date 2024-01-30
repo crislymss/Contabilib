@@ -1,7 +1,9 @@
-from fpdf import FPDF
+import fpdf
 
-
+# Vamos importar o FPDF dentro de cada função onde é necessário
 def create_pdf_rescisao(file_name, data):
+    from fpdf import FPDF
+
     '''Este método cria um PDF com os dados da rescisão.'''
     pdf = FPDF()
     pdf.add_page()
@@ -57,6 +59,8 @@ def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, ca
 
 
 def create_pdf_balanco(file_name, data):
+    from fpdf import FPDF
+
     '''Cria um PDF com os dados do balanço patrimonial.'''
     pdf = FPDF()
     pdf.add_page()
@@ -80,6 +84,8 @@ def create_pdf_balanco(file_name, data):
 
 
 def gerar_pdf_balanco(ativos, passivos, periodo):
+    from fpdf import FPDF
+
     '''Este método gera um PDF com os dados do balanço patrimonial.'''
     data = []
     patrimonio_liquido_total = 0
