@@ -15,7 +15,7 @@ class PDF_Rescisao(FPDF):
         self.set_font('Times', 'I', 8)
         self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
 
-def create_pdf(file_name, data):
+def create_pdf_rescisao(file_name, data):
     '''Este metodo cria um PDF com os dados da rescisão.
     
     ...
@@ -120,7 +120,7 @@ def gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, ca
     # adicione mais campos conforme necessário
     ]
 
-    create_pdf("termo_de_rescisao.pdf", data)
+    create_pdf_rescisao("termo_de_rescisao.pdf", data)
 
 
 
@@ -142,7 +142,7 @@ class PDF_Balanco(FPDF):
         self.set_font('Times', 'I', 8)
         self.cell(0, 10, 'Página %s' % self.page_no(), 0, 0, 'C')
 
-def create_pdf(file_name, data):
+def create_pdf_balanco(file_name, data):
     '''Cria um PDF com os dados do balanço patrimonial.
     
     ...
@@ -207,5 +207,5 @@ def gerar_pdf_balanco(ativos, passivos, periodo):
 
     data.append(["Patrimônio Líquido Total", f"R$ {patrimonio_liquido_total}"])
 
-    create_pdf("balanco_patrimonial.pdf", data)
+    create_pdf_balanco("balanco_patrimonial.pdf", data)
 

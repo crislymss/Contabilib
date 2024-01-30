@@ -35,7 +35,7 @@ def gerargraficorescisao(multafgts, avisoprevio, decimoterceiro, ferias_proporci
     fig, ax = plt.subplots()
 
     # Cria o gráfico de barras
-    ax = sns.barplot(x=componentes, y=valores, palette="viridis")
+    ax = sns.barplot(x=componentes, y=valores, hue=componentes, palette="viridis",legend=False)
 
     # Adiciona rótulos e título
     ax.set_title('Valores da Rescisão')
