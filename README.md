@@ -101,6 +101,30 @@ periodo = ['janeiro', 'fevereiro', conforme necessário
 gerar_pdf_balanco(ativos, passivos, periodo)
 ```
 
+### Exemplo de Uso: Gerar PDF Rescisao Sem justa Causa
+
+```python
+from contabilib import gerar_pdf_rescisao
+
+valor_rescisao, fgts, multa_fgts, aviso_previo, decimo_terceiro, ferias_proporcionais = rescisao_sem_justa_causa(
+    2000, 12)
+
+nome = "Raimundo Sousa"
+cpf = "078.345.213-00"
+razaosocial = "Magazine Luiza S/A"
+cnpj = "47.960.950/0001-21"
+salario = 2000
+tempodeservico = 12
+causadoafastamento = "Baixo Desempenho do Colaborador"
+diadarescisao = "30/01/2024"
+
+
+gerar_pdf_rescisao(nome, cpf, razaosocial, cnpj, tempodeservico, salario, causadoafastamento,
+                   multa_fgts, aviso_previo, decimo_terceiro, ferias_proporcionais, diadarescisao, valor_rescisao)
+
+```
+
+
 ### Exemplo de Uso: Gerar gráfico Patrimonio e Rescisão
 ```python
 from contabilib import gerargraficorescisao, gerargraficopatrimonio

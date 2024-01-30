@@ -10,7 +10,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="contabilib",
-    version="5.2.0",
+    version="5.3.0",
     author="crisly, erik",
     author_email="crislymaria21@gmail.com",
     description="Biblioteca para cálculos contábeis.",
