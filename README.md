@@ -1,13 +1,3 @@
-Metadata-Version: 2.1
-Name: contabilib
-Version: 5.0.0
-Summary: Biblioteca para cálculos contábeis.
-Author: crisly, erik
-Author-email: crislymaria21@gmail.com
-Keywords: python,contablidade
-Classifier: Development Status :: 3 - Alpha
-Description-Content-Type: text/markdown
-
 # Contabilib: Biblioteca Python para Manipulações de Serviços de Contabilidade
 
 O Contabilib é uma biblioteca Python desenvolvida para lidar com tarefas comuns de contabilidade, como cálculo de rescisão, balanço patrimonial, demonstração de resultados e criação de gráficos financeiros. Ele oferece uma ferramenta de ajuda para programadores que desejam integrar esses serviços contábeis em seus projetos.

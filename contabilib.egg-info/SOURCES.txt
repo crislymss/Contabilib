@@ -1,3 +1,4 @@
+README.md
 setup.py
 contabilib/__init__.py
 contabilib/calcular_balanco.py

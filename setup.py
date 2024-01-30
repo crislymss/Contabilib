@@ -1,27 +1,30 @@
 from setuptools import setup, find_packages
+from os import path
 
-VERSION = "0.0.7"
-DESCRIPTION = "Biblioteca para calculos contabeis."
-LONG_DESCRIPTION = "Biblioteca Python para manipulações de serviços de contabilidade."
+# lê o conteúdo do arquivo README.md
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 REQUIRED_PACKAGES = [
     'numpy',
-    'matplotlib',
-    'fpdf'
+    'matplotlib',  # Especificando a versão exata do FPDF
+    'seaborn',
+    'fpdf',
 ]
 
 setup(
-    # the name must match the folder name
     name="contabilib",
-    version=VERSION,
-    author="crisly",
+    version="5.0.0",
+    author="crisly, erik",
     author_email="crislymaria21@gmail.com",
-    description=DESCRIPTION,
-    long_description=LONG_DESCRIPTION,
+    description="Biblioteca para cálculos contábeis.",
+    long_description=long_description,
+    # especifica que o long_description está em Markdown
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     install_requires=REQUIRED_PACKAGES,  # adiciona bibliotecas adicionais
-    keywords=['python'],
+    keywords=['python', 'contablidade'],
     classifiers=["Development Status :: 3 - Alpha",]
-
 )
